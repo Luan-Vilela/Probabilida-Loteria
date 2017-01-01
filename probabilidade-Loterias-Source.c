@@ -4,7 +4,7 @@
 float probabilidade(float numCartela, float numSorteados, float aux);
 
 int main(){
-		
+		//variaveis locais utilizadas
 	int numCartela, numSorteados, numMarcado, numAcerto ;
 
 	printf("Digite quantos numeros tem a cartela: ");
@@ -25,12 +25,15 @@ int main(){
 	int b = probabilidade(numMarcado, numAcerto, abs(numAcerto - numMarcado));
 	int c = probabilidade(numCartela-numMarcado, abs(numSorteados - numAcerto ), abs(  (numCartela-numMarcado) - (numSorteados - numAcerto)  )  );
 
+	//possibilidades de acerto
 	printf(":::: Essa e a possibilidade que tem de acerto 1 em %d ::::\n", a/(b*c) );
 
 }
-// 60 6 7 6
-//						53				0					53
+	
+	//Calcula a probabilidade de C[x.x] em recursão
 float probabilidade(float numCartela, float numSorteados, float aux){
+		//caso aux seja igual a número total retorna 1.
+		//Pois ex:   10!/10! = 1 conforme imagens anexadas com o código
 	if(numCartela == aux)
 		return 1;
 	else if(numSorteados <= 1)
